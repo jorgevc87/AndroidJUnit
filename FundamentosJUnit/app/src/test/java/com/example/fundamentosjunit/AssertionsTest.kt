@@ -38,4 +38,19 @@ class AssertionsTest {
         assertFalse("mensaje cuando el test booleano falla", assertions.checkHuman(bot))
         assertTrue("mensaje cuando el test booleano falla", assertions.checkHuman(bot))
     }
+
+    @Test
+    fun checkNullUserTest() {
+        val user = null
+        assertNull("El usuario es nulo", user)
+
+        val assertions = Assertions()
+        assertNull(assertions.checkHuman(user))
+    }
+
+    @Test
+    fun checkNoNullUserTest() {
+        val user = null
+        assertNotNull("El usuario no es nulo", user)
+    }
 }
