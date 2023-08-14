@@ -28,4 +28,14 @@ class AssertionsTest {
         assertEquals("El nombre no coincide con el esperado", name, assertions.getName())
         assertNotEquals("El nombre no coincide con el esperado", otherName, assertions.getName())
     }
+
+    @Test
+    fun checkHumanTest() {
+        val assertions = Assertions()
+        val bot = User(name = "8bit", age = 1, isHuman = false)
+        val juan = User(name = "Juan", age = 18, isHuman = true)
+
+        assertFalse("mensaje cuando el test booleano falla", assertions.checkHuman(bot))
+        assertTrue("mensaje cuando el test booleano falla", assertions.checkHuman(bot))
+    }
 }

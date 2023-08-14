@@ -18,8 +18,8 @@ class Assertions {
         return user.isHuman
     }
 
-    fun checkHuman(user: User? = null): Boolean? {
-        if (user == null) return null
+    fun checkHuman(user: User? = null): Boolean {
+        if (user == null) return false
         return user.isHuman
     }
 
