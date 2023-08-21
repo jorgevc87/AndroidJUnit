@@ -2,9 +2,12 @@ package com.example.fundamentosjunit
 
 class Assertions {
 
-
-
     private val user = User("Jorge Luis", age = 36)
+    private var location = "US"
+
+    fun setLocation(location: String) {
+        this.location = location
+    }
 
     fun getLuckyNumbers(): Array<Int> {
         return arrayOf(21, 117)
@@ -26,6 +29,7 @@ class Assertions {
     fun isAdult(user: User): Boolean {
         if (!user.isHuman) return true
 
-        return user.age >= 18
+        return if (location == "US") user.age >= 21
+        else user.age >= 18
     }
 }
