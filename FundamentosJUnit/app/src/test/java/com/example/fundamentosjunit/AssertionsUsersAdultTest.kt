@@ -9,7 +9,8 @@ class AssertionsUsersAdultTest {
     private lateinit var bot: User
     private lateinit var juan: User
 
-    private lateinit var assertions: Assertions
+    @get:Rule
+    val locationESRule = LocationESRule()
 
     @Before
     fun setup() {
@@ -17,7 +18,6 @@ class AssertionsUsersAdultTest {
         Este metodo se ejecuta antes de cualquier otra funcion con la etiqueta @Test
         Se utiliza para inicializar objetos que serán usado en los tests
         */
-        assertions = Assertions()
         bot = User(name = "8bit", age = 1, isHuman = false)
         juan = User(name = "Juan", age = 18, isHuman = true)
 
@@ -38,11 +38,16 @@ class AssertionsUsersAdultTest {
 
     @Test
     fun isAdult() {
+        /*
         val assertions = Assertions()
 
         assertions.setLocation("ES")
 
         assertTrue(assertions.isAdult(juan))
         assertTrue(assertions.isAdult(bot))
+        */
+        
+        assertEquals(true, locationESRule.assertions?.isAdult(juan))
+        assertEquals(true, locationESRule.assertions?.isAdult(bot))
     }
 }
